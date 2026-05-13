@@ -22,7 +22,7 @@ public  class BasicEnemy extends Character{
     }
     
     @Override
-    public void applyPassiveTrait(){
+    public void apply   PassiveTrait(){
         System.out.println(getName() + "is too busy giving a shit lol.");
     }
 }
