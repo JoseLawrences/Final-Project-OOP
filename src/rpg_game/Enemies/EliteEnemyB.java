@@ -3,16 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package rpg_game.Enemies;
-
 import rpg_game.Character;
-
 /**
  *
  * @author 63927
  */
-public class EliteEnemy extends Character{
-    public EliteEnemy(String Name){
-        super("BadEnemy", 10000, 10000, 1280, 300);
+public class EliteEnemyB {
+    public EliteEnemyB(String Name){
+        super(Name, 10000, 10000, 1280, 300);
     }
     
     @Override

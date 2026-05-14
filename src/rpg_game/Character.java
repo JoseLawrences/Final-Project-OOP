@@ -11,7 +11,7 @@ package rpg_game;
 public abstract class Character {
     
     private String name;
-    private int  hp;
+    private int  HP;
     private int maxHP;
     private int attackPower;
     private int defensePower;
@@ -24,12 +24,12 @@ public abstract class Character {
         this.name = name;
     }
 
-    public int getHp() {
-        return hp;
+    public int getHP() {
+        return HP;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
+    public void setHP(int HP) {
+        this.HP = HP;
     }
 
     public int getMaxHP() {
@@ -58,7 +58,7 @@ public abstract class Character {
 
     public Character(String name, int hp, int maxHP, int attackPower, int defensePower) {
         this.name = name;
-        this.hp = hp;
+        this.HP = hp;
         this.maxHP = maxHP;
         this.attackPower = attackPower;
         this.defensePower = defensePower;
@@ -66,5 +66,24 @@ public abstract class Character {
     
     public abstract void useSpecialSkill(Character target);
     public abstract void applyPassiveTrait();
+    
+    public int getVulnerableTurns() {
+        return vulnerableTurns;
+    }
+
+    public void setVulnerableTurns(int vulnerableTurns) {
+        this.vulnerableTurns = vulnerableTurns;
+    }
+
+    public int getOriginalDefense() {
+        return originalDefense;
+    }
+
+    //Status Effects
+    public void setOriginalDefense(int originalDefense) {
+        this.originalDefense = originalDefense;
+    }
+    private int vulnerableTurns = 0;
+    private int originalDefense = -1;
 }
 
