@@ -8,14 +8,18 @@ import rpg_game.Character;
  *
  * @author 63927
  */
-public class EliteEnemyB {
+public class EliteEnemyB extends Character {
     public EliteEnemyB(String Name){
         super(Name, 10000, 10000, 1280, 300);
     }
     
     @Override
     public void useSpecialSkill(Character target){
-        System.out.println(getName() + "used 'Basic Attack Plus' on " +  target.getName() + "!");
+        System.out.println(getName() + "used 'Decaying Puncture' on " +  target.getName() + "!");
+        int damage = (int)(getAttackPower() * 1.2);
+        target.setHP(target.getHP() -  damage);
+        
+        target.setPoisonedTurns(3);
     }
     
     @Override

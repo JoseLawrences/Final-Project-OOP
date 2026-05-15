@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package rpg_game;
+import java.util.ArrayList;
 
 /**
  *
@@ -64,7 +65,7 @@ public abstract class Character {
         this.defensePower = defensePower;
     }
     
-    public abstract void useSpecialSkill(Character target);
+    public abstract void useSpecialSkill(ArrayList<Character> targets, Random rand);
     public abstract void applyPassiveTrait();
     
     public int getVulnerableTurns() {
@@ -85,5 +86,14 @@ public abstract class Character {
     }
     private int vulnerableTurns = 0;
     private int originalDefense = -1;
+    private int poisonedTurns = 0;
+
+    public int getPoisonedTurns() {
+        return poisonedTurns;
+    }
+
+    public void setPoisonedTurns(int poisonedTurns) {
+        this.poisonedTurns = poisonedTurns;
+    }
 }
 

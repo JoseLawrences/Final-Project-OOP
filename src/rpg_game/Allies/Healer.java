@@ -10,7 +10,7 @@ import rpg_game.Character;
  *
  * @author 63927
  */
-public class Healer extends Character{
+public abstract class Healer extends Character{
     public Healer(String Name){
         super(Name, 2800, 2800, 720, 200);
     }
