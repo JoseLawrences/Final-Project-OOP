@@ -4,15 +4,15 @@
  */
 package rpg_game;
 import java.util.Random;    
-import rpg_game.Allies.Warrior;
-import rpg_game.Allies.Tank;
+import rpg_game.allies.Warrior;
+import rpg_game.allies.Tank;
 import rpg_game.Allies.Mage;
-import rpg_game.Allies.Healer;
-import rpg_game.Allies.Archer;
-import rpg_game.Enemies.BasicEnemy;
-import rpg_game.Enemies.EliteEnemyA;
-import rpg_game.Enemies.EliteEnemyB;
-import rpg_game.Enemies.BossEnemy;
+import rpg_game.allies.Healer;
+import rpg_game.allies.Archer;
+import rpg_game.enemies.BasicEnemy;
+import rpg_game.enemies.EliteEnemyA;
+import rpg_game.enemies.EliteEnemyB;
+import rpg_game.enemies.BossEnemy;
 import java.util.ArrayList;
 /**
  *
@@ -44,29 +44,8 @@ public class RPG_Game {
         // status effect check
         while (alliesAlive(allies) && enemiesAlive(enemies)){
             
-            for(Character c : allies){
-                if (c.getVulnerableTurns() > 0){
-                    c.setVulnerableTurns(c.getVulnerableTurns() - 1);
-                    
-                    if(c.getVulnerableTurns() == 0){
-                        c.setDefensePower(c.getOriginalDefense());
-                        c.setOriginalDefense(-1);
-                        System.out.println(c.getName() + " is no longer vulnerable!");
-                    }
-                }
-                
-                if(c.getPoisonedTurns() > 0){
-                    int poisonDamage = (int)(c.getMaxHP() * 0.025);
-                    c.setHP(c.getHP() - poisonDamage);
-                    if(c.getHP() < 0) c.setHP(0);
-                    System.out.println(c.getName() + " suffered some poison damage");
-                    c.setPoisonedTurns(c.getPoisonedTurns() - 1);
-                    
-                    if (c.getPoisonedTurns() == 0){
-                        System.out.println(c.getName() + " is now free from poison!");
-                    }
-                }
-            }
+            for(Character c : allies) c.updateStatuses();
+             for(Character e : enemies) e.updateStatuses();
  
             int randomIndex = rand.nextInt(allies.size());
             Character chosenTarget = allies.get(randomIndex);
